@@ -1,9 +1,7 @@
 package org.kumuluzee.endpoints;
 
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -11,8 +9,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
 
 import org.kumuluzee.models.Cliente;
 
@@ -22,18 +18,19 @@ public class HelloWorldResource {
 	@POST
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_JSON})
-	public Response hello(Cliente req) throws DatatypeConfigurationException {
+	public Response hello(Cliente req) throws Exception {
 		System.out.println("id->"+req.getId()+" nome->"+req.getNome()+" nasc->"
 			+req.getNascimento());
 		
-		GregorianCalendar gc = new GregorianCalendar();
-		gc.setTime(new Date());
-		System.out.println(DatatypeFactory.newInstance().newXMLGregorianCalendar(gc));
+		System.out.println("dtRequest->"+req.getDataHoraRequisicao());
 		
-		Map<String, String> json = new HashMap<>();
-        json.put("framework", "KumuluzEE");
+        Cliente resp = new Cliente();
+        resp.setId(2L);
+        resp.setIdade(42);
+        resp.setDataHoraRequisicao(LocalDateTime.now());
+        resp.setNascimento(LocalDate.now());
 
-        return Response.ok(json).build();
+        return Response.ok(resp).build();
 	}
 	
 }

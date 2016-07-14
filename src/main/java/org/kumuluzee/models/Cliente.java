@@ -1,17 +1,29 @@
 package org.kumuluzee.models;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import org.kumuluzee.datatypeadapter.LocalDateAdapter;
+import org.kumuluzee.datatypeadapter.LocalDateTimeAdapter;
 
 @XmlRootElement
 public class Cliente {
+	
+	@XmlElement(type = String.class)
+	@XmlJavaTypeAdapter(value = LocalDateTimeAdapter.class)
+	private LocalDateTime dataHoraRequisicao;
 
 	private Long id;
 	
 	private String nome;
 	
-	private Date nascimento;
+	@XmlElement(type = String.class)
+	@XmlJavaTypeAdapter(value = LocalDateAdapter.class)
+	private LocalDate nascimento;
 	
 	private Integer idade;
 	
@@ -33,11 +45,11 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public Date getNascimento() {
+	public LocalDate getNascimento() {
 		return nascimento;
 	}
 
-	public void setNascimento(Date nascimento) {
+	public void setNascimento(LocalDate nascimento) {
 		this.nascimento = nascimento;
 	}
 
@@ -55,6 +67,14 @@ public class Cliente {
 
 	public void setRenda(Double renda) {
 		this.renda = renda;
+	}
+
+	public LocalDateTime getDataHoraRequisicao() {
+		return dataHoraRequisicao;
+	}
+
+	public void setDataHoraRequisicao(LocalDateTime dataHoraRequisicao) {
+		this.dataHoraRequisicao = dataHoraRequisicao;
 	}
 	
 }
