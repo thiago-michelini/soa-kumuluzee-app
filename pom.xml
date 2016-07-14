@@ -33,6 +33,27 @@
 		    <version>${kumuluzee.version}</version>
 		</dependency>
 		
+		<!-- 		API JPA (embutida no KumuluzEE) -->
+		<dependency>
+		    <groupId>com.kumuluz.ee</groupId>
+		    <artifactId>kumuluzee-jpa-eclipselink</artifactId>
+		    <version>${kumuluzee.version}</version>
+		</dependency>
+		
+		<!-- 		API CDI (embutida no KumuluzEE) -->
+		<dependency>
+		    <groupId>com.kumuluz.ee</groupId>
+		    <artifactId>kumuluzee-cdi-weld</artifactId>
+		    <version>${kumuluzee.version}</version>
+		</dependency>
+		
+		<!-- 	HSQLDB -->
+		<dependency>
+		    <groupId>org.hsqldb</groupId>
+		    <artifactId>hsqldb</artifactId>
+		    <version>2.3.4</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
