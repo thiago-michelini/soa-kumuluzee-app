@@ -1,26 +1,33 @@
 package org.kumuluzee.models;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.kumuluzee.datatypeadapter.LocalDateAdapter;
+import org.kumuluzee.datatypeadapter.DateAdapter;
 import org.kumuluzee.datatypeadapter.LocalDateTimeAdapter;
 
 @Entity
 @Table(name = "PUBLIC.CLIENTE")
+@NamedQueries({
+	@NamedQuery(name = "Cliente.todos", query = "FROM Cliente c")
+})
 @XmlRootElement
-public class Cliente {
+public class Cliente extends EntidadeBase {
 	
 	@XmlElement(type = String.class)
 	@XmlJavaTypeAdapter(value = LocalDateTimeAdapter.class)
@@ -35,9 +42,10 @@ public class Cliente {
 	private String nome;
 	
 	@XmlElement(type = String.class)
-	@XmlJavaTypeAdapter(value = LocalDateAdapter.class)
+	@XmlJavaTypeAdapter(value = DateAdapter.class)
 	@Column
-	private LocalDate nascimento;
+	@Temporal(TemporalType.DATE)
+	private Date nascimento;
 	
 	@Column
 	private Integer idade;
@@ -61,11 +69,11 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public LocalDate getNascimento() {
+	public Date getNascimento() {
 		return nascimento;
 	}
 
-	public void setNascimento(LocalDate nascimento) {
+	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
 	}
 

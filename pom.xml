@@ -16,7 +16,7 @@
 	</properties>
   
 	<dependencies>
-		<!-- 		Dependencias do KumuluzEE -->
+		<!-- 	Dependencias do KumuluzEE -->
 		<dependency>
 		    <groupId>com.kumuluz.ee</groupId>
 		    <artifactId>kumuluzee-core</artifactId>
@@ -33,14 +33,14 @@
 		    <version>${kumuluzee.version}</version>
 		</dependency>
 		
-		<!-- 		API JPA (embutida no KumuluzEE) -->
+		<!-- 	API JPA (embutida no KumuluzEE) -->
 		<dependency>
 		    <groupId>com.kumuluz.ee</groupId>
 		    <artifactId>kumuluzee-jpa-eclipselink</artifactId>
 		    <version>${kumuluzee.version}</version>
 		</dependency>
 		
-		<!-- 		API CDI (embutida no KumuluzEE) -->
+		<!-- 	API CDI (embutida no KumuluzEE) -->
 		<dependency>
 		    <groupId>com.kumuluz.ee</groupId>
 		    <artifactId>kumuluzee-cdi-weld</artifactId>
@@ -52,6 +52,13 @@
 		    <groupId>org.hsqldb</groupId>
 		    <artifactId>hsqldb</artifactId>
 		    <version>2.3.4</version>
+		</dependency>
+		
+		<!-- 	Jdbc Postgre -->
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>9.4-1206-jdbc41</version>
 		</dependency>
 		
 		<dependency>
