@@ -1,9 +1,10 @@
 package org.kumuluzee.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.kumuluzee.datatypeadapter.DateAdapter;
 import org.kumuluzee.datatypeadapter.LocalDateTimeAdapter;
+import org.kumuluzee.datatypeadapter.LocalDateToSQLDate;
 
 @Entity
 @Table(name = "PUBLIC.CLIENTE")
@@ -45,7 +47,8 @@ public class Cliente extends EntidadeBase {
 	@XmlJavaTypeAdapter(value = DateAdapter.class)
 	@Column
 	@Temporal(TemporalType.DATE)
-	private Date nascimento;
+	@Convert(converter = LocalDateToSQLDate.class)
+	private LocalDate nascimento;
 	
 	@Column
 	private Integer idade;
@@ -69,11 +72,11 @@ public class Cliente extends EntidadeBase {
 		this.nome = nome;
 	}
 
-	public Date getNascimento() {
+	public LocalDate getNascimento() {
 		return nascimento;
 	}
 
-	public void setNascimento(Date nascimento) {
+	public void setNascimento(LocalDate nascimento) {
 		this.nascimento = nascimento;
 	}
 

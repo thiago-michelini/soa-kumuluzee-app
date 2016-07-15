@@ -1,5 +1,6 @@
 package org.kumuluzee.services;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class ClienteService extends ServiceBase {
 		Cliente c = new Cliente();
 		c.setNome("Thiago Michelini");
 		c.setIdade(31);
-		c.setNascimento(new Date());
+		c.setNascimento(LocalDate.now());
 		
 		super.gravar(c);
 		getEm().clear();

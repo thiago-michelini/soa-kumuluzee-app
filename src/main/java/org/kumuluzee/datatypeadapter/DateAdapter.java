@@ -1,22 +1,20 @@
 package org.kumuluzee.datatypeadapter;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
-public class DateAdapter extends XmlAdapter<String, Date> {
-
-	private static SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+public class DateAdapter extends XmlAdapter<String, LocalDate> {
 	
 	@Override
-	public Date unmarshal(String v) throws Exception {
-		return fmt.parse(v);
+	public LocalDate unmarshal(String v) throws Exception {
+		return LocalDate.parse(v, DateTimeFormatter.ISO_DATE);
 	}
 
 	@Override
-	public String marshal(Date v) throws Exception {
-		return fmt.format(v);
+	public String marshal(LocalDate v) throws Exception {
+		return v.format(DateTimeFormatter.ISO_DATE);
 	}
 
 }
