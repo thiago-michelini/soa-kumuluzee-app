@@ -5,9 +5,9 @@
 
   <!--persistence-unit name="pg-PU" transaction-type="RESOURCE_LOCAL"-->
   <persistence-unit name="hsql-PU" transaction-type="RESOURCE_LOCAL">
-	  <!--provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+	  <!--provider>org.hibernate.jpa.HibernatePersistenceProvider</provider-->
 	  
-	  <class>org.soaspark.entity.Cliente</class-->
+	  <class>org.kumuluzee.models.Cliente</class>
 	  
 	  <properties>
 	    <!--property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/teste_vs" /-->
@@ -29,6 +29,9 @@
 	    <property name="hibernate.c3p0.timeout" value="500" />
 	    <property name="hibernate.c3p0.max_statements" value="50" />
 	    <property name="hibernate.c3p0.idle_test_period" value="2000" /-->
+	    <property name="javax.persistence.schema-generation.database.action" value="create"/>
+        <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
+        <property name="javax.persistence.schema-generation.drop-source" value="metadata"/>
 	  </properties>
 
   </persistence-unit>
