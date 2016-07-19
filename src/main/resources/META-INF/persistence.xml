@@ -7,6 +7,10 @@
   
 	  <!--provider>org.hibernate.jpa.HibernatePersistenceProvider</provider-->
 	  
+	  <!-- Converters -->
+	  <class>org.kumuluzee.datatypeadapter.LocalDateToSQLDate</class>
+	  
+	  <!-- Entity / Models -->
 	  <class>org.kumuluzee.models.Cliente</class>
 	  
 	  <properties>
@@ -31,6 +35,10 @@
 
   <persistence-unit name="hsql-PU" transaction-type="RESOURCE_LOCAL">
 	  
+	  <!-- Converters -->
+	  <class>org.kumuluzee.datatypeadapter.LocalDateToSQLDate</class>
+	  
+	  <!-- Entity / Models -->
 	  <class>org.kumuluzee.models.Cliente</class>
 	  
 	  <properties>
