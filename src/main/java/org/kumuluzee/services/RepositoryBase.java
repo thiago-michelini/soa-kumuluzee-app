@@ -3,7 +3,7 @@ package org.kumuluzee.services;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-public abstract class ServiceBase extends GenericRepository {
+public abstract class RepositoryBase extends GenericRepository {
 	
 	@PersistenceContext(unitName = "hsql-PU")
 	private EntityManager em;

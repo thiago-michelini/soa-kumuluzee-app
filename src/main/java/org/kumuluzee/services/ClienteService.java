@@ -1,7 +1,6 @@
 package org.kumuluzee.services;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -10,7 +9,7 @@ import javax.inject.Inject;
 import org.kumuluzee.models.Cliente;
 
 @RequestScoped
-public class ClienteService extends ServiceBase {
+public class ClienteService extends RepositoryBase {
 	
 	@Inject
 	private ClientePGService clientePGService;

@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import org.kumuluzee.models.Cliente;
 
 @RequestScoped
-public class ClientePGService extends ServiceBase {
+public class ClientePGService extends RepositoryBase {
 	
 	@PersistenceContext(unitName = "pg-PU")
 	private EntityManager em;
