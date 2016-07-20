@@ -7,7 +7,7 @@ import javax.ws.rs.ApplicationPath;
 import org.glassfish.jersey.filter.LoggingFilter;
 import org.glassfish.jersey.server.ResourceConfig;
 
-@ApplicationPath("/")
+@ApplicationPath("/rest-API")
 public class RestApplication extends ResourceConfig {
 
 	public RestApplication() {
