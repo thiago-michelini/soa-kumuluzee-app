@@ -9,20 +9,22 @@ public abstract class GenericRepository {
 	protected abstract EntityManager getEm();
 	
 	protected <T extends EntidadeBase> T gravar(T entidade) throws Exception {
-		getEm().getTransaction().begin();
+		EntityManager em = getEm();
+		em.getTransaction().begin();
 		if (null == entidade.getId())
-			getEm().persist(entidade);
+			em.persist(entidade);
 		else
-			getEm().merge(entidade);
-		getEm().getTransaction().commit();
+			em.merge(entidade);
+		em.getTransaction().commit();
 		
 		return entidade;
 	}
 	
 	protected <T extends EntidadeBase> void excluir(T entidade) throws Exception {
-		getEm().getTransaction().begin();
-		getEm().remove(entidade);
-		getEm().getTransaction().commit();
+		EntityManager em = getEm();
+		em.getTransaction().begin();
+		em.remove(entidade);
+		em.getTransaction().commit();
 	}
 	
 	protected <T> T buscarPorId(Class<T> clazz, Long id) {

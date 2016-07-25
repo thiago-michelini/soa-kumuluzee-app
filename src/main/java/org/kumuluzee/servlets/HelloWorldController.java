@@ -17,6 +17,10 @@ public class HelloWorldController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/plain");
 		resp.setStatus(HttpServletResponse.SC_OK);
+		
+		resp.setHeader("Access-Control-Allow-Origin", "*");
+		resp.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+		
 		resp.getWriter().println("Hello World KumuluzEE");
 	}
 	
