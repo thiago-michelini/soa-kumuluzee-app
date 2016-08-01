@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import org.kumuluzee.models.Cliente;
 
 @RequestScoped
-public class ClienteService extends RepositoryBase {
+public class UsuarioService extends RepositoryBase {
 	
 //	@Inject
 //	private ClientePGService clientePGService;

@@ -11,8 +11,8 @@ import org.kumuluzee.models.Cliente;
 @RequestScoped
 public class ClientePGService extends RepositoryBase {
 	
-	@PersistenceContext(unitName = "pg-PU")
-	private EntityManager em;
+//	@PersistenceContext(unitName = "pg-PU")
+//	private EntityManager em;
 	
 	public Cliente gravar(Cliente c) throws Exception {
 		c = super.gravar(c);
@@ -23,9 +23,9 @@ public class ClientePGService extends RepositoryBase {
 		return c;
 	}
 
-	@Override
-	protected EntityManager getEm() {
-		return em;
-	}
+//	@Override
+//	protected EntityManager getEm() {
+//		return em;
+//	}
 	
 }
