@@ -6,6 +6,7 @@ import javax.ws.rs.ApplicationPath;
 
 import org.glassfish.jersey.filter.LoggingFilter;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.kumuluzee.jaxrs.filter.LiberaCrossDomainResponseFilter;
 
 @ApplicationPath("/rest-API")
 public class RestApplication extends ResourceConfig {
@@ -17,6 +18,9 @@ public class RestApplication extends ResourceConfig {
 		// define como default o log do java
 		Logger log = Logger.getGlobal();
 		register(new LoggingFilter(log, true));
+		
+		//registrando filtro para liberacao de acesso Cross Domain
+		register(new LiberaCrossDomainResponseFilter());
 	}
 	
 }

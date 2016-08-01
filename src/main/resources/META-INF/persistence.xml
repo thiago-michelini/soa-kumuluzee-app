@@ -41,6 +41,7 @@
 	  
 	  <!-- Entity / Models -->
 	  <class>org.kumuluzee.models.Cliente</class>
+	  <class>org.kumuluzee.models.Usuario</class>
 	  
 	  <properties>
 	    <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:meubanco" />
