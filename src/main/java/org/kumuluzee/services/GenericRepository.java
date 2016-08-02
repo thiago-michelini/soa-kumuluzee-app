@@ -20,10 +20,10 @@ public abstract class GenericRepository {
 		return entidade;
 	}
 	
-	protected <T extends EntidadeBase> void excluir(T entidade) throws Exception {
+	protected <T extends EntidadeBase> void excluir(Class<T> clazz, T entidade) throws Exception {
 		EntityManager em = getEm();
 		em.getTransaction().begin();
-		em.remove(entidade);
+		em.remove(buscarPorId(clazz, entidade.getId()));
 		em.getTransaction().commit();
 	}
 	

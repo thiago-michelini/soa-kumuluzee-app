@@ -16,6 +16,10 @@ public class UsuarioService extends RepositoryBase {
 		return super.gravar(entidade);
 	}
 	
+	public void excluir(Usuario entidade) throws Exception {
+		super.excluir(Usuario.class, entidade);
+	}
+	
 	public List<Usuario> buscar(Long id, String login, String cpf) throws Exception {
 		String hql = "FROM Usuario u WHERE 1 = 1 ";
 		Map<String, Object> params = new HashMap<String, Object>();
