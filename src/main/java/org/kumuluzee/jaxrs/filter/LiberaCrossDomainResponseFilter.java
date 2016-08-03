@@ -13,7 +13,7 @@ public class LiberaCrossDomainResponseFilter implements ContainerResponseFilter 
 	public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext)
 			throws IOException {
 		
-		responseContext.getHeaders().put("Access-Control-Allow-Origin", Arrays.asList("http://192.168.41.65"));
+		responseContext.getHeaders().put("Access-Control-Allow-Origin", Arrays.asList("http://localhost"));
 		responseContext.getHeaders().put("Access-Control-Allow-Headers", Arrays.asList("Origin", "X-Requested-With", "Content-Type", "Accept"));
 		responseContext.getHeaders().put("Access-Control-Allow-Methods", Arrays.asList("GET", "POST", "PUT", "DELETE"));
 		
