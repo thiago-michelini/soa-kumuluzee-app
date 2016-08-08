@@ -1,4 +1,4 @@
-package org.kumuluzee.services;
+package org.kumuluzee.repository;
 
 import javax.persistence.EntityManager;
 

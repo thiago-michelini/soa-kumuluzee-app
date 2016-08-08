@@ -3,26 +3,26 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-<!--   <persistence-unit name="pg-PU" transaction-type="RESOURCE_LOCAL"> -->
+  <persistence-unit name="pg-PU" transaction-type="RESOURCE_LOCAL">
   
 	  <!--provider>org.hibernate.jpa.HibernatePersistenceProvider</provider-->
 	  
 	  <!-- Converters -->
-<!-- 	  <class>org.kumuluzee.datatypeadapter.LocalDateToSQLDate</class> -->
+	  <class>org.kumuluzee.datatypeadapter.LocalDateToSQLDate</class>
 	  
 	  <!-- Entity / Models -->
-<!-- 	  <class>org.kumuluzee.models.Cliente</class> -->
+	  <class>org.kumuluzee.models.Cliente</class>
 	  
-<!-- 	  <properties> -->
-<!-- 	    <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/teste_vs" /> -->
-<!-- 	    <property name="javax.persistence.jdbc.user" value="postgres" /> -->
-<!-- 	    <property name="javax.persistence.jdbc.password" value="tmm1985" /> -->
-<!-- 	    <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> -->
+	  <properties>
+	    <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/teste_vs" />
+	    <property name="javax.persistence.jdbc.user" value="postgres" />
+	    <property name="javax.persistence.jdbc.password" value="tmm1985" />
+	    <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 	    <!--property name="hibernate.show_sql" value="true" />
 	    <property name="hibernate.format_sql" value="true" />
 	    <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 	    <property name="hibernate.hbm2ddl.auto" value="update" /-->
-<!-- 	    <property name="javax.persistence.schema-generation.database.action" value="create"/> -->
+	    <property name="javax.persistence.schema-generation.database.action" value="create"/>
 	
 	    <!-- Configuring Connection Pool -->
 <!-- 	    <property name="hibernate.c3p0.min_size" value="5" /> -->
@@ -30,9 +30,9 @@
 <!-- 	    <property name="hibernate.c3p0.timeout" value="500" /> -->
 <!-- 	    <property name="hibernate.c3p0.max_statements" value="50" /> -->
 <!-- 	    <property name="hibernate.c3p0.idle_test_period" value="2000" /> -->
-<!-- 	  </properties> -->
+	  </properties>
 
-<!--   </persistence-unit> -->
+  </persistence-unit>
 
   <persistence-unit name="hsql-PU" transaction-type="RESOURCE_LOCAL">
 	  
@@ -51,6 +51,27 @@
 	    <property name="javax.persistence.schema-generation.database.action" value="create"/>
         <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
         <property name="javax.persistence.schema-generation.drop-source" value="metadata"/>
+	  </properties>
+
+  </persistence-unit>
+  
+  <persistence-unit name="sgr-PU" transaction-type="RESOURCE_LOCAL">
+	  
+	  <!-- Converters ->
+	  <class>org.kumuluzee.datatypeadapter.LocalDateToSQLDate</class-->
+	  
+	  <!-- Entity / Models -->
+	  <class>org.kumuluzee.models.EstadoTreinamento</class>
+	  
+	  <properties>
+	    <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@racdev-scan.redetendencia.com.br:1521/backofficedev.redetendencia.com.br" />
+	    <property name="javax.persistence.jdbc.user" value="adm_sgr" />
+	    <property name="javax.persistence.jdbc.password" value="adm_sgr" />
+	    <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
+	    <property name="javax.persistence.schema-generation.database.action" value="create"/>
+        <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
+        <property name="javax.persistence.schema-generation.drop-source" value="metadata"/>
+		<property name="javax.persistence.schema-generation.database.action" value="create"/>
 	  </properties>
 
   </persistence-unit>

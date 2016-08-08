@@ -8,9 +8,10 @@ import javax.enterprise.context.RequestScoped;
 import javax.persistence.TypedQuery;
 
 import org.kumuluzee.models.Usuario;
+import org.kumuluzee.repository.RepositoryHSQLDB;
 
 @RequestScoped
-public class UsuarioService extends RepositoryBase {
+public class UsuarioService extends RepositoryHSQLDB {
 	
 	public Usuario gravar(Usuario entidade) throws Exception {
 		return super.gravar(entidade);

@@ -7,12 +7,13 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
 import org.kumuluzee.models.Cliente;
+import org.kumuluzee.repository.ClienteRepository;
 
 @RequestScoped
-public class ClienteService extends RepositoryBase {
+public class ClienteService extends ClienteRepository {
 	
-//	@Inject
-//	private ClientePGService clientePGService;
+	@Inject
+	private ClientePGService clientePGService;
 	
 	public Cliente gravar() throws Exception {
 		Cliente c = new Cliente();
@@ -21,12 +22,12 @@ public class ClienteService extends RepositoryBase {
 		c.setNascimento(LocalDate.now());
 		
 		super.gravar(c);
-//		getEm().clear();
-//		
-//		c.setId(null);
-//		clientePGService.gravar(c);
+		getEm().clear();
 		
-		List<Cliente> lista = getEm().createNamedQuery("Cliente.todos", Cliente.class).getResultList();
+		c.setId(null);
+		clientePGService.gravar(c);
+		
+		List<Cliente> lista = buscarTodos();
 		lista.forEach((item) -> {
 			System.out.println("HSQLDB--->"+item.getId() + " | "  + item.getNome() + " | " + item.getNascimento());
 		});
