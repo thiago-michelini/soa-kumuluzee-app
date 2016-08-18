@@ -2,6 +2,8 @@ package org.kumuluzee.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,6 +37,10 @@ public class Usuario extends EntidadeBase {
 	
 	@Column
 	private String cpf;
+	
+	@Column
+	@Enumerated(EnumType.ORDINAL)
+	private TipoUsuario tipoUsuario;
 
 	public Long getId() {
 		return id;
@@ -74,6 +80,14 @@ public class Usuario extends EntidadeBase {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public TipoUsuario getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(TipoUsuario tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 	
 }
