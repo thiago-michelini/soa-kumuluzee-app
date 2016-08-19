@@ -51,6 +51,12 @@ public class UsuarioResource {
 		return Response.ok().build();
 	}
 	
+	@GET
+	@Path("get-tipos-usuario")
+	public Response getTipoUsuario() throws Exception {
+		return Response.ok(service.getTiposUsuarios()).build();
+	}
+	
 	private Response gravar(Usuario u) throws Exception {
 		Usuario resp = service.gravar(u);
         return Response.ok(resp).build();

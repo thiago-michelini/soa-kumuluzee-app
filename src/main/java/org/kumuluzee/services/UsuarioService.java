@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 
+import org.kumuluzee.models.TipoUsuarioWrapper;
 import org.kumuluzee.models.Usuario;
 import org.kumuluzee.repository.JPAModel;
 import org.kumuluzee.repository.RepositoryHSQLDB;
@@ -41,6 +42,10 @@ public class UsuarioService extends RepositoryHSQLDB {
 		
 		jpaModel.setSql(hql);
 		return getEntidades(jpaModel, Usuario.class);
+	}
+	
+	public TipoUsuarioWrapper getTiposUsuarios() throws Exception {
+		return new TipoUsuarioWrapper();
 	}
 	
 }
